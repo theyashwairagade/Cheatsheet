@@ -4,7 +4,8 @@
 using namespace std;
 
 // Time complexity is O(n)
-vector<int> zFunction(string str)
+// Can be runned independently
+vector<int> zFunction(string &str)
 {
     int n = str.size();
     vector<int> zIndex(n, 0);
@@ -21,6 +22,21 @@ vector<int> zFunction(string str)
     }
     return zIndex;
 }
+
+vector<int> zFunction(string &str, string &pattern){
+    string temp = pattern + "#" + str;
+    // Change accourdingly
+    bool returnOnlyString = false;
+
+    auto ans = zFunction(temp);
+    if(returnOnlyString){
+        int n = pattern.size();
+        return vector<int>(ans.begin()+n+1, ans.end());
+    }
+    return ans;
+}
+
+
 int main()
 {
     string s;

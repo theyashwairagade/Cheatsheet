@@ -1,6 +1,11 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
+// Range sum
+// Inversion count
+// Range updates
+// Kth smallest or largest
 class FenwickTree{
     private:
         vector<int> tree;
@@ -27,6 +32,7 @@ class FenwickTree{
             }
             return ans;
         }
+        // including both left and right
         int rangeQuery(int left, int right)
         {
             return query(right)-query(left-1);
