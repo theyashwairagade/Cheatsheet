@@ -7,7 +7,7 @@ public:
         for (int i = 0; i < n; i++) 
             parent[i] = i;
     }
-
+    
     int findParent(int x) {
         if (parent[x] != x) 
             parent[x] = findParent(parent[x]); // Path compression
@@ -38,6 +38,12 @@ public:
             if(!isConnected(startingIndex,i))
                 return false;
         return true;
+    }
+
+    void clear(){
+        for (int i = 0; i < parent.size(); i++) 
+            parent[i] = i,
+            rank[i] = 0;
     }
 };
 

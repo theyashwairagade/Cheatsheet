@@ -80,3 +80,31 @@ void printWeightedAdjacencyList(vector<vector<pair<int,int>>> &adjacencyList){
         cout<<endl;
     }
 }
+
+
+
+
+// Tree adjacency list
+vector<vector<int>> undirectedAdjacencyList(vector<vector<int>>& edges){
+    int n = edges.size()+1;
+    // Zero indexing
+    vector<vector<int>> vec(n);
+    for(auto &edge: edges)
+        vec[edge[0]].push_back(edge[1]),
+        vec[edge[1]].push_back(edge[0]);
+    return vec;
+}
+void solve(int node, int parent, vector<vector<int>> &adj, vector<vector<int>> &normalAdj){
+    for(auto &child: normalAdj)
+        if(child != parent){
+            adj[node].push_back(child);
+            solve(child, node, adj, normalAdj);
+        }
+}
+vector<vector<int>> treeAdjacencyList(vector<vector<int>>& edges, int root = 0){
+    vector<vector<int>> adj(n);
+    auto normalAj = undirectedAdjacencyList(edges);
+
+    solve(root, -1, adj, normalAj);
+    return adj;
+}
