@@ -64,6 +64,10 @@ class SegmentTree{
             tree.resize(4*n+1);
             build(vec,0,0,n-1);
         }
+        SegmentTree(int nn){
+            n = nn;
+            tree.resize(4*n+1);
+        }
         void update(int index, int val)
             {update(0, 0, n-1, index, val);}
         // Including right index

@@ -7,6 +7,7 @@ void print(vector<int> &vec){
 void print(vector<vector<int>> &vec){
     for(auto &i: vec)
         print(i);
+    cout<<endl;
 }
 
 
