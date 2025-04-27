@@ -79,15 +79,13 @@ public:
                 parent[rootX] = rootY,
                 size[rootY] += size[rootX];
     }
-
-    bool isConnected(int x, int y)
-        {return findParent(x) == findParent(y);}
     
-    // Default startingIndex is zero
-    bool isFullyConnected(int startingIndex = 0){
-        for(int i=startingIndex+1; i<parent.size(); i++)
-            if(!isConnected(startingIndex,i))
-                return false;
-        return true;
+    int disjointComponenets(){
+        int ans = 0;
+        for(int i = 0; i<parent.size(); i++){
+            if(findParent(i) == i)
+                ans++;
+        }
+        return ans;
     }
 };

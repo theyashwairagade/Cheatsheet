@@ -34,15 +34,18 @@ class FenwickTree{
         }
         // including both left and right
         int rangeQuery(int left, int right)
-        {
-            return query(right)-query(left-1);
-        }
+            {return left <= right ? query(right)-query(left-1) : 0;}
+
         FenwickTree(vector<int> &vec)
         {
             n=vec.size();
-            tree.resize(n+1, 0);
+            tree.resize(n+1);
             for(int i=0; i<n; i++)
                 update(i, vec[i]);
+        }
+        FenwickTree(int sz){
+            n = sz;
+            tree.resize(n+1, 0);
         }
 };
 int main()

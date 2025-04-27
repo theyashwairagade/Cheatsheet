@@ -94,3 +94,17 @@ vector<vector<int>> getCombinations(int n, int m, int mod = 1e9+7) {
     }
     return combination;
 }
+
+
+
+
+
+int ncr(int n, int r, int limit = INT_MAX-1){
+    long long ans = 1;
+    for(int i = 1; i<=r; i++){
+        ans *= n-i+1;
+        ans /= i;
+        if(ans > (long long)limit) return limit + 1;
+    }
+    return ans;
+}

@@ -71,6 +71,30 @@ vector<vector<pair<int,int>>> undirectedWeighetedAdjacencyList(const int &n, con
 
 
 
+vector<vector<pair<int,int>>> directedWeighetedAdjacencyList(const int &n, const vector<vector<int>> &edges){
+    vector<vector<pair<int,int>>> adjacencyList(n);
+    for(auto &edge: edges)
+        adjacencyList[edge[0]].push_back({edge[1], edge[2]});
+    
+    return adjacencyList;
+}
+
+
+
+
+
+vector<vector<pair<int,int>>> directedWeighetedReverseAdjacencyList(const int &n, const vector<vector<int>> &edges){
+    vector<vector<pair<int,int>>> adjacencyList(n);
+    for(auto &edge: edges)
+        adjacencyList[edge[1]].push_back({edge[0], edge[2]});
+    
+    return adjacencyList;
+}
+
+
+
+
+
 void printWeightedAdjacencyList(vector<vector<pair<int,int>>> &adjacencyList){
     int n = adjacencyList.size();
     for(int i=0; i<n; i++){

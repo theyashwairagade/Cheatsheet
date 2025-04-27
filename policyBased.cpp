@@ -1,6 +1,6 @@
-#include <ext/pb_ds/assoc_container.hpp>
 // #include <ext/pb_ds/detail/standard_policies.hpp>
 // #include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
 typedef tree<
     int,                        // Key type: type of elements in the set is int
@@ -14,3 +14,8 @@ typedef tree<
 // use less if require in ascending order without duplicates
 // check for less
 // check for descending without duplicates
+
+
+
+order_of_key(x);
+find_by_order(x);
