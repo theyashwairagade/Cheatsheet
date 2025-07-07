@@ -1,7 +1,70 @@
-#include<iostream>
-#include<vector>
-#include<limits.h>
+#include<bits/stdc++.h>
 using namespace std;
+
+class IterativeSegmentTree {
+    int n;
+    vector<int> tree;
+
+    int merge(int a, int b) {
+        int mod = 1e9+7;
+        a %= mod;
+        b %= mod;
+        return (a+b) % mod;
+    }
+
+    int notFound()
+        {return 0;}
+
+    void build(vector<int> &vec) {
+        for(int i = 0; i<n; i++)
+            tree[i+n] = vec[i];
+        
+        for(int i = n-1; i; i--)
+            tree[i] = merge(tree[i*2], tree[i*2+1]);
+    }
+
+public:
+    IterativeSegmentTree(int n) : n(n)
+        {tree.resize(2*n);}
+
+    IterativeSegmentTree(vector<int> &vec) : IterativeSegmentTree(vec.size())
+        {build(vec);}
+
+    int query(int left, int right) {
+        int ans = notFound();
+        left += n;
+        right += n;
+
+        while(left < right) {
+            if(left % 2)
+                ans = merge(ans, tree[left++]);
+            if(right % 2 == 0)
+                ans = merge(ans, tree[right--]);
+            
+            left/=2;
+            right/=2;
+        }
+
+        if (left == right)
+            ans = merge(ans, tree[left]);
+
+        return ans;
+    }
+
+    void update(int index, int value) {
+        index += n;
+        tree[index] = value;
+        while(index > 1) {
+            index /= 2;
+            tree[index] = merge(tree[index*2], tree[index*2 + 1]);
+        }
+    }
+};
+
+
+
+
+
 class SegmentTree{
     private:
         vector<int> tree;

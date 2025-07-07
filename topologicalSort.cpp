@@ -1,6 +1,5 @@
 // Requires directed acyclic adjacency list
-void dfs(int node, vector<int> &ans, vector<bool> &visited, vector<vector<int>> &directedAcyclicAdjacencyList)
-{
+void dfs(int node, vector<int> &ans, vector<bool> &visited, vector<vector<int>> &directedAcyclicAdjacencyList) {
     if(visited[node])
         return;
     visited[node]=true;
@@ -10,8 +9,8 @@ void dfs(int node, vector<int> &ans, vector<bool> &visited, vector<vector<int>> 
         
     ans.push_back(node);
 }
-vector<int> topologicalSort(vector<vector<int>> &directedAcyclicAdjacencyList)
-{
+
+vector<int> topologicalSort(vector<vector<int>> &directedAcyclicAdjacencyList) {
     int n = directedAcyclicAdjacencyList.size();
 
     vector<int> ans;

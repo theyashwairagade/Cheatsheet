@@ -3,7 +3,7 @@ class rollingHash{
         int mod, base;
         vector<int> hash, pow;
     public:
-        rollingHash(vector<int> &vec, int bse, int md = 1e9+7){
+        rollingHash(vector<int> &nums, int bse, int md = 1e9+7){
             mod = md;
             base = bse;
 

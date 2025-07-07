@@ -58,7 +58,7 @@ vector<vector<pair<int,int>>> getAdjacencyListInVec(vector<unordered_map<int,int
 
 
 
-vector<vector<pair<int,int>>> undirectedWeighetedAdjacencyList(const int &n, const vector<vector<int>> &edges){
+vector<vector<pair<int,int>>> undirectedWeightedAdjacencyList(const int &n, const vector<vector<int>> &edges){
     vector<vector<pair<int,int>>> adjacencyList(n);
     for(auto &edge: edges)
         adjacencyList[edge[0]].push_back({edge[1], edge[2]}),
@@ -71,7 +71,7 @@ vector<vector<pair<int,int>>> undirectedWeighetedAdjacencyList(const int &n, con
 
 
 
-vector<vector<pair<int,int>>> directedWeighetedAdjacencyList(const int &n, const vector<vector<int>> &edges){
+vector<vector<pair<int,int>>> directedWeightedAdjacencyList(const int &n, const vector<vector<int>> &edges){
     vector<vector<pair<int,int>>> adjacencyList(n);
     for(auto &edge: edges)
         adjacencyList[edge[0]].push_back({edge[1], edge[2]});
@@ -83,7 +83,7 @@ vector<vector<pair<int,int>>> directedWeighetedAdjacencyList(const int &n, const
 
 
 
-vector<vector<pair<int,int>>> directedWeighetedReverseAdjacencyList(const int &n, const vector<vector<int>> &edges){
+vector<vector<pair<int,int>>> directedWeightedReverseAdjacencyList(const int &n, const vector<vector<int>> &edges){
     vector<vector<pair<int,int>>> adjacencyList(n);
     for(auto &edge: edges)
         adjacencyList[edge[1]].push_back({edge[0], edge[2]});
@@ -126,6 +126,8 @@ void solve(int node, int parent, vector<vector<int>> &adj, vector<vector<int>> &
         }
 }
 vector<vector<int>> treeAdjacencyList(vector<vector<int>>& edges, int root = 0){
+    int n= edges.size()+1;
+    
     vector<vector<int>> adj(n);
     auto normalAj = undirectedAdjacencyList(edges);
 
