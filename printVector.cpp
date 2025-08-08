@@ -24,6 +24,11 @@ void print(vector<long long> &vec){
 void print(vector<vector<long long>> &vec){
     for(auto &i: vec)
         print(i);
+    cout<<endl;
+}
+void print(vector<vector<long long>> &vec) {
+    for(auto &i: vec)
+        print(i);
 }
 
 
